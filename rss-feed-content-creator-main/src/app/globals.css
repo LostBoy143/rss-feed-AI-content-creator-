@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-/* styles/globals.css */
 html,
 body {
   height: 100%;
   margin: 0;
-  overflow: hidden; /* Prevent the body from scrolling */
+  overflow: auto; /* Prevent the body from scrolling */
+}
+#body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  overflow-y: scroll;
+}
+
+#body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 #__next {
@@ -28,26 +30,214 @@ main {
   overflow-y: auto; /* Allow vertical scrolling in the main content area */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  transition: width 0.3s ease;
+}
+
+::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 100vw;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar-track::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: trackShine 3s linear infinite;
+}
+
+@keyframes trackShine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 12px #4f46e5;
+  }
+  33% {
+    background-position: 50% 50%;
+    box-shadow: 0 0 15px #9333ea;
+  }
+  66% {
+    background-position: 75% 50%;
+    box-shadow: 0 0 12px #7e22ce;
+  }
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 12px #4f46e5;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    45deg,
+    #4f46e5,
+    #9333ea,
+    #7e22ce,
+    #4f46e5
+  );
+  background-size: 300% 300%;
+  border-radius: 100vw;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-clip: padding-box;
+  animation: colorChange 6s ease infinite;
+  position: relative;
+}
+
+/* Adding decorative dots using pseudo-elements */
+::-webkit-scrollbar-thumb::before,
+::-webkit-scrollbar-thumb::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+::-webkit-scrollbar-thumb::before {
+  top: 25%;
+  left: calc(50% - 2px);
+  animation-delay: 0s;
+}
+
+::-webkit-scrollbar-thumb::after {
+  bottom: 25%;
+  left: calc(50% - 2px);
+  animation-delay: 1.5s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-size: 200% 200%;
+  animation: colorChange 3s ease infinite,
+    pulse 2s ease infinite;
+}
+
+::-webkit-scrollbar-corner {
+  background: #222;
+}
+
+/* Adding a glow trail effect to the track when hovered */
+::-webkit-scrollbar:hover {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(79, 70, 229, 0.1),
+    rgba(147, 51, 234, 0.1),
+    transparent
+  );
+}
+
+/* Make scrollbar expand slightly on hover for a more interactive feel */
+::-webkit-scrollbar:hover {
+  width: 12px;
+}
+@keyframes border-animate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-border {
+  position: relative;
+  z-index: 0;
+  border-radius: 0.75rem; /* same as rounded-xl */
+  padding: 2px;
+  background: linear-gradient(
+    270deg,
+    #0fffc1,
+    #7e0fff,
+    #0fffc1
+  );
+  background-size: 600% 600%;
+  animation: border-animate 6s ease infinite;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background-color: black;
+  border-radius: inherit;
+  z-index: -1;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
