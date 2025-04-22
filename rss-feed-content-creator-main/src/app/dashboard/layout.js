@@ -23,8 +23,8 @@ export default function RootLayout({ children }) {
           <Header />
           <div className="flex mt-10 min-w-full h-screen overflow-hidden justify-between">
             <Sidebar />
-            <div className="flex-1 flex flex-col md:flex-row justify-around overflow-y-auto">
-              <div className="flex-1 p-10">
+            <div className="bg-black text-white flex-1 flex flex-col md:flex-row justify-around overflow-y-auto">
+              <div className="flex-1 p-10 ">
                 <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 dark:text-white">
                   Here are your results 👇
                 </h2>
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
                   fallback={<LoadingSpinner />}
                 >
                   <RouteChangeHandler>
-                    {children}
+                    <div>{children}</div>
                   </RouteChangeHandler>
                 </Suspense>
               </div>

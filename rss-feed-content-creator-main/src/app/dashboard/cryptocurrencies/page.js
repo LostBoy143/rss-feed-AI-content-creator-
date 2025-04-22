@@ -25,7 +25,7 @@ const Cryptocurrencies = () => {
   }, []);
 
   return (
-    <div className="p-5">
+    <div className="p-5 bg-black">
       <h2 className="mb-4">
         {data?.feed?.description}
       </h2>

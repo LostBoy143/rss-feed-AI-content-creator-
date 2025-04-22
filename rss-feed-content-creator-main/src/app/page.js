@@ -4,6 +4,9 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import HeroSection from "./components/HeroSection";
+import HowItWorks from "./components/HowItWorks";
+import WhyUseThis from "./components/WhyUseThis";
+import Footer from "./components/Footer";
 
 export default function LandingPage() {
   const particlesInit = useCallback(
@@ -82,25 +85,13 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <HeroSection />
 
-          {/* Section 1 */}
-          <div className="py-16">
-            <h2 className="text-2xl font-semibold mb-4">
-              Section 1
-            </h2>
-            <p className="text-gray-300">
-              Your content here...
-            </p>
-          </div>
+          <HowItWorks />
+          <WhyUseThis />
 
           {/* Section 2 */}
-          <div className="py-16">
-            <h2 className="text-2xl font-semibold mb-4">
-              Section 2
-            </h2>
-            <p className="text-gray-300">
-              Your content here...
-            </p>
-          </div>
+        </div>
+        <div className="pt-16">
+          <Footer />
         </div>
       </div>
     </>
