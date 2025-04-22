@@ -54,7 +54,7 @@ export default function LandingPage() {
                 color: "#4f46e5",
                 distance: 150,
                 enable: true,
-                opacity: 0.5,
+                opacity: 1,
                 width: 1,
               },
               move: {

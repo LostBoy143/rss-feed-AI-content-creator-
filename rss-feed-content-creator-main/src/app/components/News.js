@@ -19,12 +19,8 @@ function News() {
       <h1 className="text-center font-bold text-3xl mb-10">
         We Curate from the Best
       </h1>
-      <Marquee
-        speed={50}
-        gradient={false}
-        pauseOnHover={true}
-      >
-        <div className="flex min-w-[100vw] justify-between ml:24 sm:ml-40 gap-12 sm:gap-0">
+      <Marquee speed={50} gradient={false}>
+        <div className="flex min-w-[100vw] justify-between mr-24 sm:ml-40 gap-12 sm:gap-0">
           {images.map((item, idx) => {
             return (
               <img
