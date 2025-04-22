@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 const HeroSection = () => {
   return (
-    <div className="group relative min-h-screen sm:min-h-[90vh]  p-4 sm:p-10 w-full flex justify-center items-center">
+    <div className="group relative min-h-[90vh]  p-4 sm:p-10 w-full flex justify-center items-center">
       <div className="fixed bg-black z-20 top-4 left-[-4px] max-w-[200px] py-2 px-4 rounded-tr-2xl rounded-br-2xl border-[1px] border-blue-600 ">
         <Link href="/">AI Content Creator</Link>
       </div>
