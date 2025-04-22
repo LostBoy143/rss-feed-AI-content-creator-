@@ -11,7 +11,7 @@ const HeroSection = () => {
           id="text-content"
           className="sm:-mt-10 flex flex-col gap-2 "
         >
-          <h1 className="sm:text-5xl text-2xl font-bold">
+          <h1 className="sm:text-5xl text-3xl font-bold">
             Turn News Into Content—In Seconds.
           </h1>
           <h2 className="text-gray-400 ">
