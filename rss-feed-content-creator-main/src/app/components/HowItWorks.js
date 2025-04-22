@@ -25,7 +25,7 @@ const HowItWorks = () => {
       <h1 className="text-center font-bold text-3xl mb-6">
         How It Works
       </h1>
-      <div className="flex justify-evenly flex-col sm:flex-row sm:gap-0 gap-2 ">
+      <div className="flex justify-evenly flex-col sm:flex-row sm:gap-0 gap-6 ">
         {steps.map((step, index) => (
           <motion.div
             key={step.heading}

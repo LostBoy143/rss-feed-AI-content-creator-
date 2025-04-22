@@ -3,7 +3,7 @@ import Link from "next/link";
 const HeroSection = () => {
   return (
     <div className="min-h-screen p-4 sm:p-10 w-full flex justify-center items-center">
-      <div className="fixed z-20 top-4 left-[-4px] max-w-[200px] py-2 px-4 rounded-tr-2xl rounded-br-2xl border-[1px] border-blue-600 ">
+      <div className="fixed bg-black z-20 top-4 left-[-4px] max-w-[200px] py-2 px-4 rounded-tr-2xl rounded-br-2xl border-[1px] border-blue-600 ">
         AI Content Creator
       </div>
       <div className="flex items-center justify-center gap-2">

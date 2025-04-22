@@ -4,10 +4,15 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { MdMenu } from "react-icons/md";
 import ModalMenu from "./ModalMenu";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+} from "react-icons/fa6";
 
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] =
+    useState(false);
 
   const handleMenuClick = () => {
     setIsModalOpen(true);
@@ -24,7 +29,7 @@ const Header = () => {
           <div className="flex items-center justify-between">
             <Link href="/">
               <h1 className="flex itmes-center justify-start font-bold text-xl cursor-pointer">
-                My Blog Creator
+                Ai Content Creator
               </h1>
             </Link>
             <div className="justify-end ">
@@ -60,7 +65,10 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <ModalMenu isOpen={isModalOpen} onClose={handleCloseModal} />
+      <ModalMenu
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };

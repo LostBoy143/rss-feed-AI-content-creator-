@@ -6,6 +6,7 @@ import { loadFull } from "tsparticles";
 import HeroSection from "./components/HeroSection";
 import HowItWorks from "./components/HowItWorks";
 import WhyUseThis from "./components/WhyUseThis";
+import News from "./components/News";
 import Footer from "./components/Footer";
 
 export default function LandingPage() {
@@ -87,6 +88,7 @@ export default function LandingPage() {
 
           <HowItWorks />
           <WhyUseThis />
+          <News />
 
           {/* Section 2 */}
         </div>

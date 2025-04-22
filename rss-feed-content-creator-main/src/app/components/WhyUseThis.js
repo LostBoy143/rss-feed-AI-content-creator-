@@ -23,7 +23,7 @@ const WhyUseThis = () => {
       <h1 className="text-center font-bold text-3xl mb-6">
         Why Use This?
       </h1>
-      <div className="flex sm:flex-row flex-col justify-evenly sm:gap-0 gap-2">
+      <div className="flex sm:flex-row flex-col justify-evenly sm:gap-0 gap-6">
         {items.map((item, index) => {
           return (
             <motion.div
