@@ -51,15 +51,16 @@ const Header = () => {
                   <FaTwitter size={24} />
                 </a>
               </div>
-              <MdMenu
-                className="block md:hidden cursor-pointer"
+              {/* <MdMenu
+                className="block md:hidden cursor-pointer text-white"
                 size={22}
                 onClick={handleMenuClick}
-              />
+              /> */}
             </div>
           </div>
         </div>
       </nav>
+
       <ModalMenu isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );

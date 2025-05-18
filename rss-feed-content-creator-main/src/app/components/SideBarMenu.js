@@ -35,7 +35,7 @@ const sections = [
   },
 ];
 
-const SideBarMenu = () => {
+const SideBarMenu = ({ setStep }) => {
   const pathname = usePathname();
 
   return (
@@ -45,10 +45,14 @@ const SideBarMenu = () => {
         const isActive = pathname === fullPath;
 
         return (
-          <Link key={section.title} href={fullPath}>
+          <Link
+            key={section.title}
+            href={fullPath}
+            onClick={() => setStep((prev) => prev + 1)}
+          >
             <p
               className={`flex m-2 text-sm gap-4 uppercase font-medium items-center px-4 py-3 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 ${
-                isActive ? "bg-gray-100 dark:bg-gray-800" : ""
+                isActive ? "" : ""
               }`}
             >
               {section.icon} {section.title}

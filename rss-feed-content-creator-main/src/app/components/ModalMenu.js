@@ -15,7 +15,7 @@ const ModalMenu = ({ isOpen, onClose }) => {
           X
         </button>
         <div className="p-4">
-          <h2 className="text-xl font-bold mb-4">Menu</h2>
+          <h2 className="text-xl font-bold mb-4 text-white">Menu</h2>
           <nav className="space-y-6">
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-4">

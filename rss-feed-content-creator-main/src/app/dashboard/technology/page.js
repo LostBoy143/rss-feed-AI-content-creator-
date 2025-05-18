@@ -1,17 +1,12 @@
 "use client";
 import React from "react";
 import FeedItem from "../../components/FeedItem";
-import {
-  baseUrl,
-  technology,
-} from "../../utils/constants";
+import { baseUrl, technology } from "../../utils/constants";
 
 const Technology = () => {
   const [data, setData] = React.useState(null);
   const fetchData = async () => {
-    const maal = await fetch(
-      `${baseUrl}${technology}`
-    );
+    const maal = await fetch(`${baseUrl}${technology}`);
     const feed = await maal.json();
     if (feed?.status !== "ok") {
       console.error("Failed to fetch feed", feed);
@@ -26,15 +21,10 @@ const Technology = () => {
 
   return (
     <div className="p-5 ">
-      <h2 className="mb-4">
-        {data?.feed?.description}
-      </h2>
+      <h2 className="mb-4">{data?.feed?.description}</h2>
       <div className="">
         {data?.items?.map((item) => (
-          <FeedItem
-            key={item?.guid}
-            item={item}
-          />
+          <FeedItem key={item?.guid} item={item} />
         ))}
       </div>
     </div>

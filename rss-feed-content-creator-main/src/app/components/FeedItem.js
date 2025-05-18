@@ -1,21 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useMyContext } from "../context/ContentContext";
 import parseContent from "../utils/parseContent";
-import {
-  BlogPrompt,
-  LinkedInPrompt,
-  TweetPrompt,
-} from "../utils/constants";
+import { BlogPrompt, LinkedInPrompt, TweetPrompt } from "../utils/constants";
 import call from "../utils/CohereApiCall";
 import LoadingSpinner from "./LoadingFull"; // Assuming you have a loading spinner component
-
+import StepContext, { useStepContext } from "../context/StepContext";
 const FeedItem = ({ item }) => {
   const { state, dispatch } = useMyContext();
+  const { setStep } = useStepContext();
 
   // State to handle loader visibility
-  const [isLoading, setIsLoading] =
-    useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const createBlog = async (prompt, content) => {
     try {
@@ -47,10 +43,7 @@ const FeedItem = ({ item }) => {
     }
   };
 
-  const createLinkedinPost = async (
-    prompt,
-    content
-  ) => {
+  const createLinkedinPost = async (prompt, content) => {
     try {
       setIsLoading(true); // Start loader
       const data = await call(prompt, content);
@@ -78,53 +71,43 @@ const FeedItem = ({ item }) => {
         <div className="flex ">{item?.title}</div>
         <div className="p-1 space-x-3 pt-4">
           <button
-            onClick={() =>
+            onClick={() => {
               dispatch({
                 type: "SET_DATA",
-                payload: parseContent(
-                  item?.description
-                ),
-              })
-            }
+                payload: parseContent(item?.description),
+              });
+              setStep((prev) => prev + 1);
+            }}
             className="transition-colors bg-[#3B82F6] p-1 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
           >
             expand..
           </button>
           <button
-            onClick={() =>
-              createBlog(
-                BlogPrompt,
-                item?.title +
-                  " " +
-                  item?.description
-              )
-            }
+            onClick={() => {
+              createBlog(BlogPrompt, item?.title + " " + item?.description);
+              setStep((prev) => prev + 1);
+            }}
             className="transition-colors bg-[#6B7280] p-1 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
           >
             blog..
           </button>
           <button
-            onClick={() =>
-              createTweet(
-                TweetPrompt,
-                item?.title +
-                  " " +
-                  item?.description
-              )
-            }
+            onClick={() => {
+              createTweet(TweetPrompt, item?.title + " " + item?.description);
+              setStep((prev) => prev + 1);
+            }}
             className="transition-colors bg-[#1DA1F2] p-1 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
           >
             tweet..
           </button>
           <button
-            onClick={() =>
+            onClick={() => {
               createLinkedinPost(
                 LinkedInPrompt,
-                item?.title +
-                  " " +
-                  item?.description
-              )
-            }
+                item?.title + " " + item?.description
+              );
+              setStep((prev) => prev + 1);
+            }}
             className="transition-colors p-1  bg-[#0077B5] duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
           >
             linkedin..
