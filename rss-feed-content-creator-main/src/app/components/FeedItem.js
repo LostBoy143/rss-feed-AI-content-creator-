@@ -67,7 +67,7 @@ const FeedItem = ({ item }) => {
         </div>
       )}
 
-      <div className="transition-all flex hover:scale-110 flex-col space-x-3 mb-2 space-y-1 text-gray-600 bg-gray-900  p-4 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
+      <div className="transition-all flex hover:scale-110 flex-col space-x-3 mb-2 space-y-1  bg-gray-900  p-4 duration-300 transform rounded-lg text-gray-200 hover:bg-gray-800  hover:text-gray-200 ">
         <div className="flex ">{item?.title}</div>
         <div className="p-1 space-x-3 pt-4">
           <button
@@ -78,7 +78,7 @@ const FeedItem = ({ item }) => {
               });
               setStep((prev) => prev + 1);
             }}
-            className="transition-colors bg-[#3B82F6] p-1 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
+            className="transition-colors text-[12px] md:text-[16px] bg-[#3B82F6] p-1 duration-300 transform rounded-lg text-gray-200 hover:bg-gray-50  hover:text-gray-500 font-medium background-transparent outline-none focus:outline-none"
           >
             expand..
           </button>
@@ -87,7 +87,7 @@ const FeedItem = ({ item }) => {
               createBlog(BlogPrompt, item?.title + " " + item?.description);
               setStep((prev) => prev + 1);
             }}
-            className="transition-colors bg-[#6B7280] p-1 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
+            className="transition-colors text-[12px] md:text-[16px] bg-[#6B7280] p-1 duration-300 transform rounded-lg text-gray-200 hover:bg-gray-50  hover:text-gray-500 font-medium background-transparent outline-none focus:outline-none"
           >
             blog..
           </button>
@@ -96,7 +96,7 @@ const FeedItem = ({ item }) => {
               createTweet(TweetPrompt, item?.title + " " + item?.description);
               setStep((prev) => prev + 1);
             }}
-            className="transition-colors bg-[#1DA1F2] p-1 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
+            className="transition-colors text-[12px] md:text-[16px] bg-[#1DA1F2] p-1 duration-300 transform rounded-lg text-gray-200 hover:bg-gray-50  hover:text-gray-500 font-medium background-transparent outline-none focus:outline-none"
           >
             tweet..
           </button>
@@ -108,7 +108,7 @@ const FeedItem = ({ item }) => {
               );
               setStep((prev) => prev + 1);
             }}
-            className="transition-colors p-1  bg-[#0077B5] duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
+            className="transition-colors p-1 text-[12px] md:text-[16px] bg-[#0077B5] duration-300 transform rounded-lg text-gray-200 hover:bg-gray-50  hover:text-gray-500 font-medium background-transparent outline-none focus:outline-none"
           >
             linkedin..
           </button>

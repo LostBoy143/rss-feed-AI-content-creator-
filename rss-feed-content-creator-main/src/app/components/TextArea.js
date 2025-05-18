@@ -19,9 +19,9 @@ const TextArea = () => {
     );
   };
   return (
-    <div className="sticky top-0 p-8 h-1/2 md:h-screen m-auto w-full gap-2 max-w-fit lg:w-1/2 rounded-sm flex-5 flex-col dark:bg-gray-900 dark:border-gray-700">
+    <div className="sticky top-0 p-8 h-1/2 md:h-screen m-auto w-full gap-2 max-w-fit lg:w-1/2 rounded-sm flex-5 flex-col bg-gray-900 border-gray-700">
       <div className="flex justify-between items-center mb-4">
-        <label className="text-xl block font-medium text-gray-900 dark:text-white">
+        <label className="text-xl block font-medium text-gray-900 text-white">
           Content
         </label>
         <button
