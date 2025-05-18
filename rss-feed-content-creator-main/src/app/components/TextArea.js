@@ -53,7 +53,7 @@ const TextArea = () => {
         cols={50}
       ></textarea>
       <textarea
-        className="md:hidden bg-gray-800 h-[50vh] p-2 rounded-sm "
+        className="md:hidden bg-gray-800 h-[50vh] py-2 rounded-sm "
         value={state.content}
         onChange={(e) =>
           dispatch({
