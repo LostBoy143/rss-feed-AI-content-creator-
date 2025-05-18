@@ -11,8 +11,7 @@ const FeedItem = ({ item }) => {
   const { setStep } = useStepContext();
 
   // State to handle loader visibility
-  const [isLoading, setIsLoading] = useState(false);
-
+  const { isLoading, setIsLoading } = useStepContext();
   const createBlog = async (prompt, content) => {
     try {
       setIsLoading(true); // Start loader

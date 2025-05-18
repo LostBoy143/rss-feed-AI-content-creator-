@@ -5,9 +5,10 @@ const StepContext = createContext();
 
 function StepProvider({ children }) {
   const [step, setStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <StepContext.Provider value={{ step, setStep }}>
+    <StepContext.Provider value={{ step, setStep, isLoading, setIsLoading }}>
       {children}
     </StepContext.Provider>
   );

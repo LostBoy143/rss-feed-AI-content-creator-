@@ -15,7 +15,7 @@ import BackButton from "../components/BackButton";
 const inter = Inter({ subsets: ["latin"] });
 
 function LayoutContent({ children }) {
-  const { step, setStep } = useStepContext();
+  const { step, setStep, isLoading } = useStepContext();
 
   return (
     <>
@@ -26,7 +26,7 @@ function LayoutContent({ children }) {
           <Sidebar />
           <div className="bg-black text-white flex-1 flex flex-col md:flex-row justify-around overflow-y-auto">
             <div className="flex-1 p-10 ">
-              <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 text-white">
+              <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-300 ">
                 Here are your results 👇
               </h2>
               <Suspense fallback={<LoadingSpinner />}>
@@ -46,7 +46,7 @@ function LayoutContent({ children }) {
         <div className="bg-black min-h-screen text-white flex-1 flex flex-col md:flex-row justify-around overflow-y-auto">
           {step === 1 && (
             <div className="flex-1 p-4 ">
-              <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 text-white">
+              <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-200 ">
                 Choose your favourite topic and start surfing!
               </h2>
               <div className="flex flex-col gap-4">
@@ -69,7 +69,7 @@ function LayoutContent({ children }) {
               <div className="mt-8 ml-4 flex w-full justify-left">
                 <BackButton />
               </div>{" "}
-              <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 text-white">
+              <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-300 ">
                 Here are your results 👇
               </h2>
               <TextArea />
