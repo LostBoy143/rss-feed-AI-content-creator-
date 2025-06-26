@@ -9,19 +9,22 @@ import RouteChangeHandler from "../components/RouteChangeHandler";
 import { Suspense } from "react";
 import LoadingSpinner from "../components/LoadingFull";
 import SideBarMenu from "../components/SideBarMenu";
-import StepProvider, { useStepContext } from "../context/StepContext";
+import StepProvider, {
+  useStepContext,
+} from "../context/StepContext";
 import BackButton from "../components/BackButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
 function LayoutContent({ children }) {
-  const { step, setStep, isLoading } = useStepContext();
+  const { step, setStep, isLoading } =
+    useStepContext();
 
   return (
     <>
       <Header />
       {/* desktop view */}
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <div className="flex mt-10 min-w-full h-screen overflow-hidden justify-between">
           <Sidebar />
           <div className="bg-black text-white flex-1 flex flex-col md:flex-row justify-around overflow-y-auto">
@@ -29,7 +32,9 @@ function LayoutContent({ children }) {
               <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-300 ">
                 Here are your results 👇
               </h2>
-              <Suspense fallback={<LoadingSpinner />}>
+              <Suspense
+                fallback={<LoadingSpinner />}
+              >
                 <RouteChangeHandler>
                   <div>{children}</div>
                 </RouteChangeHandler>
@@ -42,12 +47,13 @@ function LayoutContent({ children }) {
       </div>
 
       {/* mobile view */}
-      <div className="md:hidden mt-12">
+      <div className="lg:hidden mt-12">
         <div className="bg-black min-h-screen text-white flex-1 flex flex-col md:flex-row justify-around overflow-y-auto">
           {step === 1 && (
             <div className="flex-1 p-4 ">
               <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-200 ">
-                Choose your favourite topic and start surfing!
+                Choose your favourite topic and
+                start surfing!
               </h2>
               <div className="flex flex-col gap-4">
                 <SideBarMenu setStep={setStep} />
@@ -55,9 +61,13 @@ function LayoutContent({ children }) {
             </div>
           )}
           {step === 2 && (
-            <Suspense fallback={<LoadingSpinner />}>
-              <RouteChangeHandler setStep={setStep}>
-                <div className="mt-8 ml-4 flex w-full justify-left">
+            <Suspense
+              fallback={<LoadingSpinner />}
+            >
+              <RouteChangeHandler
+                setStep={setStep}
+              >
+                <div className="mt-8 ml-4 flex flex-col w-full justify-left">
                   <BackButton />
                 </div>
                 <div>{children}</div>
@@ -87,7 +97,9 @@ export default function RootLayout({ children }) {
       <StepProvider>
         <html lang="en">
           <body>
-            <LayoutContent>{children}</LayoutContent>
+            <LayoutContent>
+              {children}
+            </LayoutContent>
           </body>
         </html>
       </StepProvider>
