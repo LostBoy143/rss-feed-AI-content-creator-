@@ -1,7 +1,9 @@
 import cohere from "./Cohere";
+
+// Hardcoded working model — replace this string if Cohere deprecates it in future.
 const call = async (prompt, content) => {
   const data = await cohere.chat({
-    model: "command",
+    model: "command-xlarge-nightly",
     chatHistory: [
       {
         role: "USER",
